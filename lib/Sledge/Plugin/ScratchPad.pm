@@ -49,3 +49,47 @@ sub clear {
 }
 
 1;
+
+__END__
+
+=head1 NAME
+
+Sledge::Plugin::ScratchPad - temporary data buffer
+
+=head1 SYNOPSIS
+
+  package Foo::Pages::Bar;
+  use Sledge::Plugin::ScratchPad;
+
+  sub dispatch_baz {
+      my $self = shift;
+      $self->pad->param(foo => 'bar');    # store
+      my $bar = $self->pad->param('foo'); # fetch
+  }
+
+=head1 DESCRIPTION
+
+ScratchPadプラグインは、テンポラリにデータを書きこむ領域を提供します。
+各オブジェクト間でデータを引きまわす際に、Pagesオブジェクトを通じてデー
+タをやりとりすることができます。格納されたデータは、dispatchメソッドが
+終了すると破棄されます。
+
+=head1 METHODS
+
+C<use Sledge::Plugin::ScrachPad> を宣言することで、そのクラスで C<pad>
+メソッドが利用可能になります。C<pad> メソッドは
+Sledge::Plugin::ScratchPad クラスのインスタンスへの read only accessor
+で、set/get 可能な C<param()> メソッドおよび、中身を空にするC<clear()>
+メソッドを実装しています。
+
+=head1 AUTHOR
+
+Tatsuhiko Miyagawa <miyagawa@edge.co.jp> with Sledge development team.
+
+=head1 SEE ALSO
+
+pnotes in L<Apache>
+
+=cut
+
+
