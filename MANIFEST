@@ -1,0 +1,6 @@
+Changes
+MANIFEST
+Makefile.PL
+lib/Sledge/Plugin/ScratchPad.pm
+t/00_compile.t
+t/01_scratchpad.t
